@@ -1,0 +1,63 @@
+#social
+  clear both
+
+#content
+  text-align center
+  font-family helvetica
+
+  p
+    margin 0.5em
+
+  h1
+    font-size 500%
+    border 1px solid gainsboro
+    display inline-block
+    padding 20px 40px
+    margin 0.3em
+
+  #controls
+
+    .tier
+      display none
+
+    &.tier0
+      .tier.t0
+        display inline
+
+    &.tier1
+      .tier.t1
+        display inline
+
+    &.tier2
+      .tier.t2
+        display inline
+
+    &.tier3
+      .tier.t3
+        display inline
+
+    &.tier4
+      .tier.t4
+        display inline
+
+    &.tier5
+      .tier.t5
+        display inline
+
+    &.tier6
+      .tier.t6
+        display inline
+
+    .control
+      margin 2ex
+      @media only screen and (max-width 500px)
+        display block
+
+#footer
+  margin-top 2ex
+  float right
+  text-align right
+  max-width 40%
+
+  @media only screen and (max-width 500px)
+    max-width 100%

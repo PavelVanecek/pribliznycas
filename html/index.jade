@@ -1,0 +1,64 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='Content-type', content='text/html;charset=UTF-8')
+    meta(name="description" content="Kam ten spěch? Zahoďte hodiny")
+    meta(name="author" content="Pavel Vanecek")
+    meta(property="og:title" content="Přibližný čas")
+    meta(property="og:type" content="article")
+    meta(property="og:url" content="http://pribliznycas.cz/")
+    meta(property="og:description" content="Kam ten spěch? Zahoďte hodiny")
+    meta(name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no")
+
+    // build:css css/minified.css
+    link(rel='stylesheet', href='../css/styles.css')
+    // endbuild
+
+    title Přibližný čas
+  body
+
+    div#header.
+      pribliznycas.cz
+
+    div#content
+      p.
+        právě je přibližně
+
+      h1#time
+
+      div#controls
+        a(href='#').control.less chci to méně přesně
+        pre.tier.t0. ------------------
+        pre.tier.t1. ===---------------
+        pre.tier.t2. ======------------
+        pre.tier.t3. =========---------
+        pre.tier.t4. ============------
+        pre.tier.t5. ===============---
+        pre.tier.t6. ==================
+        a(href='#').control.more chci to přesněji
+
+    div#footer
+      p Kam ten spěch? Přestaňte používat všechny hodiny přesnější než tyto a uspokojení z vašeho života se zvedne o&nbsp;83.57&nbsp;%.
+      p Vyrobil Pavel Vaněček, 2014
+
+    div#social
+      <iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fpribliznycas.cz&amp;layout=standard&amp;show_faces=true&amp;action=like&amp;colorscheme=light" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+
+    // build:js js/app.min.js
+    script(src="../bower_components/moment/moment.js")
+    script(src="../bower_components/moment/lang/cs.js")
+    script(src="../js/app.js")
+    // endbuild
+
+    script.
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-50272123-1', 'pribliznycas.cz');
+      ga('send', 'pageview');
+
+    // @exclude
+    script(src="http://localhost:35729/livereload.js")
+    // @endexclude
