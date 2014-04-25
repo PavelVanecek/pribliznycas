@@ -1,6 +1,6 @@
 {
   "name": "pribliznycas",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "pribliznycas.cz website",
   "scripts": {
     "start": "grunt",
