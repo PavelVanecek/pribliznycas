@@ -85,13 +85,13 @@ tiers = [
   (ts) ->
     strings = [
       'celá&nbsp;a&nbsp;něco'
-      'hnedle&nbsp;tři&nbsp;čtvrtě'
       'za&nbsp;chvíli&nbsp;čtvrt'
       'čtvrt'
       'po&nbsp;čtvrt'
       'bude&nbsp;půl'
       'půl'
       'po&nbsp;půl'
+      'hnedle&nbsp;tři&nbsp;čtvrtě'
       'tři&nbsp;čtvrtě'
       'po&nbsp;tři&nbsp;čtvrtě'
       'bude&nbsp;celá'
