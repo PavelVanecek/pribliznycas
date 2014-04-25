@@ -116,7 +116,7 @@ fitText = ->
   MAX_FONT_SIZE = 200
   MIN_FONT_SIZE = 30
   container?.style.fontSize = Math.max(Math.min(
-    container.clientWidth / (Math.log(longestWord) * 2.5), MAX_FONT_SIZE
+    container.clientWidth / (Math.log(longestWord) * 2.6), MAX_FONT_SIZE
     ), MIN_FONT_SIZE) + 'px'
 
 addEvent 'resize', fitText
