@@ -142,3 +142,5 @@ onclick = (e) ->
 if !addEvent 'click', onclick
   # if adding event fails, hide controls
   document.getElementById('controls').style.display = 'none'
+
+console.log "Zdrojáky najdeš na githubu: https://github.com/PavelVanecek/pribliznycas"
