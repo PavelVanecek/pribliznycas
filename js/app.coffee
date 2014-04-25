@@ -1,3 +1,13 @@
+addEvent = (name, cb) ->
+  if document.addEventListener
+    document.addEventListener name, cb, false
+    true
+  else if document.attachEvent
+    document.attachEvent 'on' + name, cb
+    true
+  else
+    false
+
 DEFAULT_TIER = 4
 
 pref =
@@ -80,8 +90,8 @@ tiers = [
       'po čtvrt'
       'bude půl'
       'půl'
-      'po půl'
-      'hnedle tři čtvrtě'
+      'po&nbsp;půl'
+      'hnedle tři&nbsp;čtvrtě'
       'tři čtvrtě'
       'po tři čtvrtě'
       'bude celá'
@@ -96,23 +106,39 @@ tiers = [
 getTime = (tier) ->
   tiers[tier]()
 
+# inspired by https://github.com/adactio/FitText.js
+fitText = ->
+  container = document.getElementById('timeContainer')
+  text = document.getElementById('time')?.innerHTML
+  if !text or !container
+    return
+  longestWord = text.split(' ').sort((a, b) -> b.length - a.length)[0].length
+  MAX_FONT_SIZE = 200
+  MIN_FONT_SIZE = 30
+  container?.style.fontSize = Math.max(Math.min(
+    container.clientWidth / (Math.log(longestWord) * 2.5), MAX_FONT_SIZE
+    ), MIN_FONT_SIZE) + 'px'
+
+addEvent 'resize', fitText
+
 render = ->
   tier = pref.get()
   document.getElementById('controls').className = 'tier' + tier
-  document.querySelector?('#time')?.innerHTML = getTime tier
+  document.getElementById('time').innerHTML = getTime tier
+  fitText()
 
 render()
 setInterval render, 1000 # once per second is more than enough
 
-if !document.addEventListener
+onclick = (e) ->
+  e.preventDefault()
+  if /less/.exec e.target.className
+    pref.minus()
+    render()
+  else if /more/.exec e.target.className
+    pref.plus()
+    render()
+
+if !addEvent 'click', onclick
+  # if adding event fails, hide controls
   document.getElementById('controls').style.display = 'none'
-else
-  onclick = (e) ->
-    e.preventDefault()
-    if /less/.exec e.target.className
-      pref.minus()
-      render()
-    else if /more/.exec e.target.className
-      pref.plus()
-      render()
-document.addEventListener 'click', onclick, true
