@@ -84,17 +84,17 @@ tiers = [
   # ctvrt
   (ts) ->
     strings = [
-      'celá a něco'
-      'za chvíli čtvrt'
+      'celá&nbsp;a&nbsp;něco'
+      'hnedle&nbsp;tři&nbsp;čtvrtě'
+      'za&nbsp;chvíli&nbsp;čtvrt'
       'čtvrt'
-      'po čtvrt'
-      'bude půl'
+      'po&nbsp;čtvrt'
+      'bude&nbsp;půl'
       'půl'
       'po&nbsp;půl'
-      'hnedle tři&nbsp;čtvrtě'
-      'tři čtvrtě'
-      'po tři čtvrtě'
-      'bude celá'
+      'tři&nbsp;čtvrtě'
+      'po&nbsp;tři&nbsp;čtvrtě'
+      'bude&nbsp;celá'
       'celá'
     ]
     size = strings.length
