@@ -123,8 +123,10 @@ addEvent 'resize', fitText
 
 render = ->
   tier = pref.get()
+  time = getTime tier
   document.getElementById('controls').className = 'tier' + tier
-  document.getElementById('time').innerHTML = getTime tier
+  document.getElementById('time').innerHTML = time
+  document.title = time.replace /&nbsp;/g, ' '
   fitText()
 
 render()
