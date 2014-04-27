@@ -11,14 +11,22 @@ addEvent = (name, cb) ->
 DEFAULT_TIER = 4
 
 pref =
+  activeTier: DEFAULT_TIER
   validate: (tier) ->
     Math.min(Math.max(tier, 0), tiers.length - 1)
   get: ->
-    @validate localStorage?.getItem?('tier') or DEFAULT_TIER
+    try
+      @activeTier = @validate localStorage?.getItem?('tier') or @activeTier
+    catch ex
+      console.log ex.stack
+    @activeTier
   set: (tier) ->
-    tier = @validate tier
-    localStorage?.setItem 'tier', tier
-    tier
+    @activeTier = @validate tier
+    try
+      localStorage?.setItem 'tier', @activeTier
+    catch ex
+      console.log ex.stack
+    @activeTier
   minus: ->
     @set @get() - 1
   plus: ->
