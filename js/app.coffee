@@ -62,7 +62,7 @@ tiers = [
     hour = moment().hours()
     minutes = moment().minutes()
     if minutes > 45
-      hour = (hour + 1)
+      hour = (hour + 1) % 24
     [
       'půlnoc'
       'jedna'
