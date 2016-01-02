@@ -79,3 +79,14 @@ body
     max-width 70%
   @media only screen and (max-width 500px)
     max-width 100%
+
+#header, #footer
+  ul li
+    list-style-type none
+    display inline
+    font-size 90%
+    &:first-child
+      font-size 100%
+
+  li+li:before
+    content " | "

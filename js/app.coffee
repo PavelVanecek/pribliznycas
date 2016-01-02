@@ -1,9 +1,9 @@
-addEvent = (name, cb) ->
-  if document.addEventListener
-    document.addEventListener name, cb, false
+addEvent = (emitter, name, cb) ->
+  if emitter.addEventListener
+    emitter.addEventListener name, cb, false
     true
-  else if document.attachEvent
-    document.attachEvent 'on' + name, cb
+  else if emitter.attachEvent
+    emitter.attachEvent 'on' + name, cb
     true
   else
     false
@@ -127,7 +127,7 @@ fitText = ->
     container.clientWidth / (Math.log(longestWord) * 2.6), MAX_FONT_SIZE
     ), MIN_FONT_SIZE) + 'px'
 
-addEvent 'resize', fitText
+addEvent document, 'resize', fitText
 
 render = ->
   tier = pref.get()
@@ -149,8 +149,9 @@ onclick = (e) ->
     pref.plus()
     render()
 
-if !addEvent 'click', onclick
+controlsEl = document.getElementById('controls')
+if !addEvent controlsEl, 'click', onclick
   # if adding event fails, hide controls
-  document.getElementById('controls').style.display = 'none'
+  controlsEl.style.display = 'none'
 
 console.log "Zdrojáky najdeš na githubu: https://github.com/PavelVanecek/pribliznycas"
