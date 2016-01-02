@@ -9,7 +9,6 @@ How to install
     git clone https://github.com/PavelVanecek/pribliznycas.git pribliznycas
     cd pribliznycas
     npm install
-    bower install
 
 How to develop
 --------------
@@ -24,8 +23,3 @@ How to build
     grunt build
 
 App will be deployed in `build/` directory, with minified html, css and js.
-
-TODO
--------------
-
-- i18n
