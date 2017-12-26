@@ -3,6 +3,74 @@
   const DEFAULT_TIER = 4
   let activeTier = DEFAULT_TIER
 
+  const months = [
+    'leden',
+    'únor',
+    'březen',
+    'duben',
+    'květen',
+    'červen',
+    'červenec',
+    'srpen',
+    'září',
+    'říjen',
+    'listopad',
+    'prosinec'
+  ]
+
+  const days = [
+    'wtf',
+    'pondělí',
+    'úterý',
+    'středa',
+    'čtvrtek',
+    'pátek',
+    'sobota',
+    'neděle'
+  ]
+
+  const hours = [
+    'půlnoc',
+    'jedna',
+    'dvě',
+    'tři',
+    'čtyři',
+    'pět',
+    'šest',
+    'sedm',
+    'osm',
+    'devět',
+    'deset',
+    'jedenáct',
+    'poledne',
+    'jedna',
+    'dvě',
+    'tři',
+    'čtyři',
+    'pět',
+    'šest',
+    'sedm',
+    'osm',
+    'devět',
+    'deset',
+    'jedenáct'
+  ]
+
+  const minuteStrings = [
+    'celá&nbsp;a&nbsp;něco',
+    'za&nbsp;chvíli&nbsp;čtvrt',
+    'čtvrt',
+    'po&nbsp;čtvrt',
+    'bude&nbsp;půl',
+    'půl',
+    'po&nbsp;půl',
+    'hnedle&nbsp;tři&nbsp;čtvrtě',
+    'tři&nbsp;čtvrtě',
+    'po&nbsp;tři&nbsp;čtvrtě',
+    'bude&nbsp;celá',
+    'celá'
+  ]
+
   function validate(tier) {
     const bounded = Math.min(Math.max(tier, 0), tiers.length - 1)
     if (isNaN(bounded)) { return DEFAULT_TIER }
@@ -37,33 +105,11 @@
     },
     function() {
       const m = new Date().getMonth()
-      return [
-        'leden',
-        'únor',
-        'březen',
-        'duben',
-        'květen',
-        'červen',
-        'červenec',
-        'srpen',
-        'září',
-        'říjen',
-        'listopad',
-        'prosinec'
-      ][m]
+      return months[m]
     },
     function() {
       const d = new Date().getDay()
-      return [
-        'wtf',
-        'pondělí',
-        'úterý',
-        'středa',
-        'čtvrtek',
-        'pátek',
-        'sobota',
-        'neděle'
-      ][d]
+      return days[d]
     },
     function() {
       const hours = new Date().getHours()
@@ -90,53 +136,14 @@
       if (minutes > 45) {
         hour = (hour + 1) % 24
       }
-      return [
-        'půlnoc',
-        'jedna',
-        'dvě',
-        'tři',
-        'čtyři',
-        'pět',
-        'šest',
-        'sedm',
-        'osm',
-        'devět',
-        'deset',
-        'jedenáct',
-        'poledne',
-        'jedna',
-        'dvě',
-        'tři',
-        'čtyři',
-        'pět',
-        'šest',
-        'sedm',
-        'osm',
-        'devět',
-        'deset',
-        'jedenáct'
-      ][hour]
+      return hours[hour]
     },
     function() {
-      const strings = [
-        'celá&nbsp;a&nbsp;něco',
-        'za&nbsp;chvíli&nbsp;čtvrt',
-        'čtvrt',
-        'po&nbsp;čtvrt',
-        'bude&nbsp;půl',
-        'půl',
-        'po&nbsp;půl',
-        'hnedle&nbsp;tři&nbsp;čtvrtě',
-        'tři&nbsp;čtvrtě',
-        'po&nbsp;tři&nbsp;čtvrtě',
-        'bude&nbsp;celá',
-        'celá'
-      ]
-      const size = strings.length
+      const size = minuteStrings.length
       const minutes = new Date().getMinutes()
       let index = ((minutes / 60) * size) - 0.5
       index = index < 0 ? index + size : index
-      return strings[Math.floor(index)]
+      return minuteStrings[Math.floor(index)]
     }
   ]
 
@@ -162,9 +169,8 @@
   document.addEventListener('resize', fitText)
 
   function render() {
-    var tier, time
-    tier = pref.get()
-    time = getTime(tier)
+    const tier = pref.get()
+    const time = getTime(tier)
     document.getElementById('controls').className = 'tier' + tier
     document.getElementById('time').innerHTML = time
     document.title = time.replace(/&nbsp;/g, ' ')
