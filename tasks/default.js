@@ -1,3 +1,3 @@
 module.exports = function(grunt) {
-  return grunt.registerTask('default', ['compile', 'connect', 'esteWatch'])
+  return grunt.registerTask('default', ['connect', 'esteWatch'])
 }

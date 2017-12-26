@@ -11,6 +11,6 @@ module.exports = {
         "quotes": [ "warn", "single" ],
         "semi": [ "warn", "never" ],
         "no-trailing-spaces": "warn",
-        "no-unused": "warn"
+        "no-unused-vars": "warn"
     }
 };

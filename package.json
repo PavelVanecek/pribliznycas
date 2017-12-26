@@ -17,14 +17,8 @@
     "grunt-contrib-connect": "^1.0.2",
     "grunt-contrib-cssmin": "^2.2.1",
     "grunt-contrib-htmlmin": "^2.4.0",
-    "grunt-contrib-jade": "^1.0.0",
-    "grunt-contrib-uglify": "^3.3.0",
     "grunt-este-watch": "^0.1.16",
-    "grunt-preprocess": "^5.1.0",
-    "grunt-uncss": "^0.8.0",
-    "grunt-usemin": "^3.1.0",
-    "load-grunt-tasks": "^3.5.2",
-    "marked": "^0.3.9"
+    "load-grunt-tasks": "^3.5.2"
   },
   "repository": {
     "type": "git",
@@ -33,6 +27,7 @@
   "devDependencies": {
     "eslint": "^4.14.0",
     "grunt": "^1.0.1",
-    "grunt-cli": "^1.2.0"
+    "grunt-cli": "^1.2.0",
+    "grunt-contrib-uglify": "git://github.com/gruntjs/grunt-contrib-uglify.git#harmony"
   }
 }

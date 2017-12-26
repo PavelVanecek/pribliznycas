@@ -1,26 +1,18 @@
 module.exports = function(grunt) {
   return grunt.registerTask('build', [
+    // delete all generated files
     'clean',
-    // compile jade -> html
-    'compile',
-    // remove unused css rules
-    // 'uncss'
 
-    // detect scripts and styles in html file, prepare it for concatenation
-    'useminPrepare',
-    // minify both css and js
-    // these tasks are configured by usemin and cannot be executed standalone
-    // i. e. the `grunt cssmin` and `grunt uglify` commands are not available
-    'concat',
+    // minify css
     'cssmin',
+
+    // minify JS
     'uglify',
-    // remove dev scripts from html
-    'preprocess',
-    // rewrite paths in the html file
-    'usemin',
+
     // minify html
     'htmlmin',
-    // delete temporary files (optional)
+
+    // delete temporary files
     'clean:temp'
   ])
 }
