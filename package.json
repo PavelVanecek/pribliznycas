@@ -5,7 +5,8 @@
   "scripts": {
     "start": "grunt",
     "build": "grunt build",
-    "test": "grunt build"
+    "test": "grunt build",
+    "lint": "eslint ."
   },
   "keywords": [
     "pribliznycas"
@@ -30,6 +31,7 @@
     "url": "https://github.com/PavelVanecek/pribliznycas"
   },
   "devDependencies": {
+    "eslint": "^4.14.0",
     "grunt": "^1.0.1",
     "grunt-cli": "^1.2.0"
   }
