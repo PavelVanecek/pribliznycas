@@ -1,12 +1,11 @@
-// inspired by http://www.thomasboyt.com/2013/09/01/maintainable-grunt.html
+// inspired by http://www.thomasboyt.com/2013/09/01/maintainable-grunt.html
 var fs = require('fs')
 
 function loadConfig(path, grunt) {
-  var object = {}
+  const object = {}
   fs.readdirSync(path).forEach(function(option) {
-    var config, key
-    key = option.replace(/\.js$/, '')
-    config = require(path + option)
+    const key = option.replace(/\.js$/, '')
+    const config = require(path + option)
     if ('function' === typeof config) {
       return object[key] = config(grunt)
     } else {
@@ -17,12 +16,11 @@ function loadConfig(path, grunt) {
 }
 
 module.exports = function(grunt) {
-  var baseConfig, config
-  baseConfig = {
+  const baseConfig = {
     pkg: grunt.file.readJSON('package.json'),
-    env: process.env
+    env: 'production'
   }
-  config = grunt.util._.extend(baseConfig, loadConfig('./tasks/options/', grunt))
+  const config = Object.assign(baseConfig, loadConfig('./tasks/options/', grunt))
   grunt.initConfig(config)
   require('load-grunt-tasks')(grunt)
   return grunt.loadTasks('tasks')
