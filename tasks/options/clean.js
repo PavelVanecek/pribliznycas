@@ -1,7 +1,8 @@
-module.exports =
+module.exports = {
   temp: [
     '.tmp'
-  ]
+  ],
   build: [
     'build/'
   ]
+}

@@ -5,7 +5,7 @@ function loadConfig(path, grunt) {
   var object = {}
   fs.readdirSync(path).forEach(function(option) {
     var config, key
-    key = option.replace(/\.coffee$/, '')
+    key = option.replace(/\.js$/, '')
     config = require(path + option)
     if ('function' === typeof config) {
       return object[key] = config(grunt)

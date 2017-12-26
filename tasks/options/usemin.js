@@ -1,2 +1,3 @@
-module.exports =
+module.exports = {
   html: 'html/index.html'
+}
