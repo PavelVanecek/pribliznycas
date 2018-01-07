@@ -5,7 +5,7 @@
   "scripts": {
     "start": "grunt",
     "build": "grunt build",
-    "test": "grunt build",
+    "test": "eslint . && grunt build",
     "lint": "eslint ."
   },
   "keywords": [
