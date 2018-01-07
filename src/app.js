@@ -18,15 +18,38 @@
     'prosinec'
   ]
 
-  const days = [
+  const daysOfMonth = [
     'wtf',
+    'prvního',
+    'druhého',
+    'třetího',
+    'čtvrtého',
+    'pátého',
+    'šestého',
+    'sedmého',
+    'osmého',
+    'devátého',
+    'desátého',
+    'jedenáctého',
+    'dvanáctého',
+    'třináctého',
+    'čtvrnáctého',
+    'patnáctého',
+    'šestnáctého',
+    'sedmnáctého',
+    'osmnáctého',
+    'devatenáctého',
+    'dvacátého'
+  ]
+
+  const days = [
+    'neděle',
     'pondělí',
     'úterý',
     'středa',
     'čtvrtek',
     'pátek',
-    'sobota',
-    'neděle'
+    'sobota'
   ]
 
   const hours = [
@@ -105,6 +128,18 @@
     function() {
       const m = new Date().getMonth()
       return months[m]
+    },
+    function () {
+      const d = new Date().getDate()
+      if (d > 30) {
+        return ['třicátého', daysOfMonth[d - 30]].filter(Boolean).join(' ')
+      }
+      if (d === 30) { return 'třicátého' }
+      if (d > 20) {
+        return ['dvacátého', daysOfMonth[d - 20]].filter(Boolean).join(' ')
+      }
+      if (d === 20 ) { return 'dvacátého' }
+      return daysOfMonth[d]
     },
     function() {
       const d = new Date().getDay()
