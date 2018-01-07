@@ -1,5 +1,4 @@
 node_modules
-css/*.css
-html/*.html
-js/*.js
 build/
+html/*.html
+.tmp
