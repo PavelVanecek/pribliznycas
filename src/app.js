@@ -72,9 +72,8 @@
   ]
 
   function validate(tier) {
-    const bounded = Math.min(Math.max(tier, 0), tiers.length - 1)
-    if (isNaN(bounded)) { return DEFAULT_TIER }
-    return bounded
+    if (isNaN(tier) || tier < 0 || tier == null) { return DEFAULT_TIER }
+    return Math.min(Math.max(tier, 0), tiers.length - 1)
   }
 
   const pref = {
